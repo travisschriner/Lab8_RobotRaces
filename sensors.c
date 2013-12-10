@@ -28,7 +28,7 @@ void initializeSensors(){
 
 	 WDTCTL = WDTPW + WDTHOLD;                   // Stop WDT
 	 ADC10CTL0 &= ~ENC;                          // Sampling and conversion stop
-	 ADC10CTL1 = INCH_3;                         // input channel A3
+	 ADC10CTL1 |= INCH_3;                         // input channel A3
 	 ADC10AE0 |= BIT3;                           // PA.1 ADC option select
 	 ADC10CTL0 = ADC10SHT_3 + ADC10ON + ADC10IE; // ADC10ON, interrupt enabled
 	 ADC10CTL1 |= ADC10SSEL1|ADC10SSEL0;         // Select SMCLK
@@ -44,7 +44,7 @@ void initializeSensors(){
  */
 void leftSensor() {
         ADC10CTL0 &= ~ENC;                // Sampling and conversion stop
-        ADC10CTL1 = INCH_3;               // input channel A3
+        ADC10CTL1 |= INCH_3;               // input channel A3
         ADC10AE0 |= BIT3;                 // PA.1 ADC option select
         ADC10CTL0 |= ENC + ADC10SC;       // Sampling and conversion start
         __bis_SR_register(CPUOFF + GIE);  // LPM0, ADC10_ISR will force exit
@@ -62,7 +62,7 @@ void leftSensor() {
  */
 void rightSensor() {
         ADC10CTL0 &= ~ENC;                 // Sampling and conversion stop
-        ADC10CTL1 = INCH_5;                // input channel A5
+        ADC10CTL1 |= INCH_5;                // input channel A5
         ADC10AE0 |= BIT5;                  // PA.3 ADC option select
         ADC10CTL0 |= ENC + ADC10SC;        // Sampling and conversion start
         __bis_SR_register(CPUOFF + GIE);   // LPM0, ADC10_ISR will force exit
@@ -77,7 +77,7 @@ void rightSensor() {
  */
 void centerSensor(){
         ADC10CTL0 &= ~ENC;                 // Sampling and conversion stop
-        ADC10CTL1 = INCH_4;                // input channel A4
+        ADC10CTL1 |= INCH_4;                // input channel A4
         ADC10AE0 |= BIT4;                  // PA.2 ADC option select
         ADC10CTL0 |= ENC + ADC10SC;        // Sampling and conversion start
         __bis_SR_register(CPUOFF + GIE);   // LPM0, ADC10_ISR will force exit

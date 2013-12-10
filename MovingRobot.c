@@ -37,10 +37,10 @@ void initializeMovement(){
 	    TA1CTL |= TASSEL1;             // configure for SMCLK
 
 	    TA0CCR0 = 100;                 // set signal period to 100 clock cycles (~100 microseconds)
-	    TA0CCR1 = 60;                  // set duty cycle to 60/100 (60%)
+	    TA0CCR1 = 50;                  // set duty cycle to 60/100 (60%)
 
 	    TA1CCR0 = 100;                 // set signal period to 100 clock cycles (~100 microseconds)
-	    TA1CCR1 = 60;                  // set duty cycle to 60/100 (60%)
+	    TA1CCR1 = 50;                  // set duty cycle to 60/100 (60%)
 
 	    TA0CCTL0 |= OUTMOD_7;          // set TA0CCTL1 to Reset / Set mode
 	    TA0CCTL1 |= OUTMOD_5;		   // set TA0CCTL0 to ground
@@ -52,63 +52,45 @@ void initializeMovement(){
 	    TA1CTL |= MC0;                 // count up
 }
 
-void turnRight90(){
-
-
-	TA0CCTL1 &= ~OUTMOD_7;         // clears
-	TA0CCTL1 |= OUTMOD_5;          // set TA0CCTL1 to Reset / Set mode
-	TA0CCTL0 &= ~OUTMOD_7;         // clears
-	TA0CCTL0 |= OUTMOD_7;		   // set TA0CCTL0 to ground
-
-	TA1CCTL1 &= ~OUTMOD_7;         // clears
-	TA1CCTL1 |= OUTMOD_7;          // set TA1CCTL1 to Reset / Set mode
-	TA1CCTL0 &= ~OUTMOD_7;         // clears
-	TA1CCTL0 |= OUTMOD_5;		   // set TA1CCTL0 to ground
-
-	_delay_cycles(295000);
-
-	moveForward();
-}
-
-void turnRight45(){
-
-	TA0CCTL1 &= ~OUTMOD_7;         // clears
-	TA0CCTL1 |= OUTMOD_5;          // set TA0CCTL1 to Reset / Set mode
-	TA0CCTL0 &= ~OUTMOD_7;         // clears
-	TA0CCTL0 |= OUTMOD_7;		   // set TA0CCTL0 to ground
-
-	TA1CCTL1 &= ~OUTMOD_7;         // clears
-	TA1CCTL1 |= OUTMOD_7;          // set TA1CCTL1 to Reset / Set mode
-	TA1CCTL0 &= ~OUTMOD_7;         // clears
-	TA1CCTL0 |= OUTMOD_5;		   // set TA1CCTL0 to ground
-
-	_delay_cycles(145000);
-
-	moveForward();
-
-}
-
 void turnLeft90(){
 
+
 	TA0CCTL1 &= ~OUTMOD_7;         // clears
-	TA0CCTL1 |= OUTMOD_7;          // set TA0CCTL1 to Reset / Set mode
+	TA0CCTL1 |= OUTMOD_5;          // set TA0CCTL1 to Reset / Set mode
 	TA0CCTL0 &= ~OUTMOD_7;         // clears
-	TA0CCTL0 |= OUTMOD_5;		   // set TA0CCTL0 to ground
+	TA0CCTL0 |= OUTMOD_7;		   // set TA0CCTL0 to ground
 
 	TA1CCTL1 &= ~OUTMOD_7;         // clears
-	TA1CCTL1 |= OUTMOD_5;          // set TA1CCTL1 to Reset / Set mode
+	TA1CCTL1 |= OUTMOD_7;          // set TA1CCTL1 to Reset / Set mode
 	TA1CCTL0 &= ~OUTMOD_7;         // clears
-	TA1CCTL0 |= OUTMOD_7;		   // set TA1CCTL0 to ground
+	TA1CCTL0 |= OUTMOD_5;		   // set TA1CCTL0 to ground
 
-	_delay_cycles(260000);
+	_delay_cycles(29500);
 
 	moveForward();
-
 }
 
 void turnLeft45(){
 
 	TA0CCTL1 &= ~OUTMOD_7;         // clears
+	TA0CCTL1 |= OUTMOD_5;          // set TA0CCTL1 to Reset / Set mode
+	TA0CCTL0 &= ~OUTMOD_7;         // clears
+	TA0CCTL0 |= OUTMOD_7;		   // set TA0CCTL0 to ground
+
+	TA1CCTL1 &= ~OUTMOD_7;         // clears
+	TA1CCTL1 |= OUTMOD_7;          // set TA1CCTL1 to Reset / Set mode
+	TA1CCTL0 &= ~OUTMOD_7;         // clears
+	TA1CCTL0 |= OUTMOD_5;		   // set TA1CCTL0 to ground
+
+	_delay_cycles(14500);
+
+	moveForward();
+
+}
+
+void turnRight90(){
+
+	TA0CCTL1 &= ~OUTMOD_7;         // clears
 	TA0CCTL1 |= OUTMOD_7;          // set TA0CCTL1 to Reset / Set mode
 	TA0CCTL0 &= ~OUTMOD_7;         // clears
 	TA0CCTL0 |= OUTMOD_5;		   // set TA0CCTL0 to ground
@@ -118,13 +100,31 @@ void turnLeft45(){
 	TA1CCTL0 &= ~OUTMOD_7;         // clears
 	TA1CCTL0 |= OUTMOD_7;		   // set TA1CCTL0 to ground
 
-	_delay_cycles(130000);
+	_delay_cycles(26000);
 
 	moveForward();
 
 }
 
-void moveBack(){
+void turnRight45(){
+
+	TA0CCTL1 &= ~OUTMOD_7;         // clears
+	TA0CCTL1 |= OUTMOD_7;          // set TA0CCTL1 to Reset / Set mode
+	TA0CCTL0 &= ~OUTMOD_7;         // clears
+	TA0CCTL0 |= OUTMOD_5;		   // set TA0CCTL0 to ground
+
+	TA1CCTL1 &= ~OUTMOD_7;         // clears
+	TA1CCTL1 |= OUTMOD_5;          // set TA1CCTL1 to Reset / Set mode
+	TA1CCTL0 &= ~OUTMOD_7;         // clears
+	TA1CCTL0 |= OUTMOD_7;		   // set TA1CCTL0 to ground
+
+	_delay_cycles(13000);
+
+	moveForward();
+
+}
+
+void moveForward(){
 
 	TA0CCTL1 &= ~OUTMOD_7;         // clears
 	TA0CCTL1 |= OUTMOD_7;          // set TA0CCTL1 to Reset / Set mode
@@ -140,7 +140,7 @@ void moveBack(){
 
 }
 
-void moveForward(){
+void moveBack(){
 
 	TA0CCTL1 &= ~OUTMOD_7;         // clears
 	TA0CCTL1 |= OUTMOD_5;          // set TA0CCTL1 to Reset / Set mode

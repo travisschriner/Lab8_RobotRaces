@@ -14,25 +14,23 @@ int main(void) {
    while(1){
 
 	   leftSensor();
-	   if(leftWall(0x1CF)){
+	   if(leftWall(0x2AA)){
 		   turnRight45();
 	   }
 
 	   rightSensor();
-	   if(leftWall(0x1CF)){
-	   	   turnLeft45();
+	   if(rightWall(0x1FF)){
+		   turnRight45();
+	   }else if(rightWall(0x230)){
+		   turnLeft45();
+	   }else if(rightWall(0x1AF)==0){
+		   turnRight90();
+		   __delay_cycles(5000);
 	   }
 
 	   centerSensor();
-	   if(frontWall(0x1CF)){
-	   	   count++;
-	   	   if(count == 2){
-	   		   turnRight90();
-	   		   __delay_cycles(5000);
-	   		   turnRight45();
-	   	   }else{
-	   		   turnLeft90();
-	   	   }
+	   if(frontWall(0x266)){
+	   	  turnLeft90();
 	   }
    }
 	
