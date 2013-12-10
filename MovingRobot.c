@@ -37,10 +37,10 @@ void initializeMovement(){
 	    TA1CTL |= TASSEL1;             // configure for SMCLK
 
 	    TA0CCR0 = 100;                 // set signal period to 100 clock cycles (~100 microseconds)
-	    TA0CCR1 = 40;                  // set duty cycle to 60/100 (60%)
+	    TA0CCR1 = 50;                  // set duty cycle to 60/100 (60%)
 
 	    TA1CCR0 = 100;                 // set signal period to 100 clock cycles (~100 microseconds)
-	    TA1CCR1 = 40;                  // set duty cycle to 60/100 (60%)
+	    TA1CCR1 = 50;                  // set duty cycle to 60/100 (60%)
 
 	    TA0CCTL0 |= OUTMOD_7;          // set TA0CCTL1 to Reset / Set mode
 	    TA0CCTL1 |= OUTMOD_5;		   // set TA0CCTL0 to ground
