@@ -9,27 +9,27 @@ int main(void) {
    initializeSensors();
    initializeMovement();
 
-   int count = 0;
+
 
    while(1){
 
-	   leftSensor();
-	   if(leftWall(0x2AA)){
-		   turnRight45();
-	   }
+//	   leftSensor();
+//	   if(leftWall(0x311)){
+//		   turnRight45();
+//	   }
 
 	   rightSensor();
-	   if(rightWall(0x1FF)){
+	   if(rightWall(0x1AA)==0){
 		   turnRight45();
-	   }else if(rightWall(0x230)){
+		   __delay_cycles(50000);
+	   }else if(rightWall(0x2AA)){
 		   turnLeft45();
-	   }else if(rightWall(0x1AF)==0){
-		   turnRight90();
-		   __delay_cycles(5000);
 	   }
 
 	   centerSensor();
-	   if(frontWall(0x266)){
+	   if(frontWall(0x211)){
+	   	  turnLeft90();
+	   	  __delay_cycles(50000);
 	   	  turnLeft90();
 	   }
    }
