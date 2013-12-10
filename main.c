@@ -13,21 +13,23 @@ int main(void) {
 
    while(1){
 
-//	   leftSensor();
-//	   if(leftWall(0x311)){
-//		   turnRight45();
-//	   }
-
-	   rightSensor();
-	   if(rightWall(0x1AA)==0){
+	   leftSensor();
+	   if(leftWall(0x311)){
 		   turnRight45();
 		   __delay_cycles(50000);
-	   }else if(rightWall(0x2AA)){
+	   }
+
+	   rightSensor();
+	   if(rightWall(0x211)==0){
+		   turnRight45();
+		   __delay_cycles(50000);
+	   }else if(rightWall(0x2EF)){
 		   turnLeft45();
+		   __delay_cycles(50000);
 	   }
 
 	   centerSensor();
-	   if(frontWall(0x211)){
+	   if(frontWall(0x266)){
 	   	  turnLeft90();
 	   	  __delay_cycles(50000);
 	   	  turnLeft90();
